@@ -17,16 +17,6 @@ function generateBarcode() {
     numberElement.innerText = code;
 }
 
-function saveBarcode() {
-    const name = document.getElementById('name').value;
-    const code = document.getElementById('code').value;
-    fetch('/api/save', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, code })
-    }).then(response => response.text()).then(data => alert(data));
-}
-
 function exportPDF() {
     const { jsPDF } = window.jspdf;
     const doc = new jsPDF();
